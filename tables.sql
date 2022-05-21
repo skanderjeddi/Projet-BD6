@@ -5,6 +5,7 @@ DROP TABLE voyage CASCADE;
 DROP TABLE etape CASCADE;
 DROP TABLE produit CASCADE;
 DROP TABLE packing CASCADE;
+DROP TABLE diplomatie CASCADE;
 
 CREATE TABLE nationalite (
     code_nation INT PRIMARY KEY,
@@ -70,3 +71,16 @@ CREATE TABLE packing (
     FOREIGN KEY (id_produit) REFERENCES produit (id_produit),
     PRIMARY KEY(id_etape, id_produit)
 );
+
+CREATE TABLE diplomatie (
+    nation_1 INT NOT NULL,
+    nation_2 INT NOT NULL,
+    relation_diplomatique VARCHAR NOT NULL CHECK (relation_diplomatique = 'Alliés Commerciaux' OR relation_diplomatique = 'Alliés' OR relation_diplomatique = 'Neutre' OR relation_diplomatique = 'En Guerre'),
+    FOREIGN KEY (nation_1) REFERENCES nationalite (code_nation),
+    FOREIGN KEY (nation_2) REFERENCES nationalite (code_nation),
+    PRIMARY KEY(nation_1, nation_2),
+);
+
+/**
+ 1-n + 1-n table de transition
+**/
