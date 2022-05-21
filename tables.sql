@@ -33,17 +33,17 @@ CREATE TABLE navire (
 
 CREATE TABLE voyage (
     id_voyage INT PRIMARY KEY,
-    date_debut DATE NOT NULL,
-    date_fin DATE NOT NULL,
+    date_depart DATE NOT NULL,
+    date_arrive DATE NOT NULL,
     id_navire INT NOT NULL,
     port_depart INT NOT NULL,
-    port_arrivee INT NOT NULL,
+    port_arrivee INT,
     type_voyage VARCHAR NOT NULL CHECK (type_voyage = 'Court' OR type_voyage = 'Moyen' OR type_voyage = 'Long'),
     categorie VARCHAR NOT NULL CHECK (categorie = 'Europe' OR categorie = 'Asie' OR categorie = 'Amerique' OR categorie = 'Afrique' OR categorie = 'Oceanie'),
     FOREIGN KEY (id_navire) REFERENCES navire (id_navire),
     FOREIGN KEY (port_depart) REFERENCES port (id_port),
     FOREIGN KEY (port_arrivee) REFERENCES port (id_port),
-    CHECK (date_debut < date_fin)
+    CHECK (date_depart < date_arrive)
 );
 
 CREATE TABLE etape (
