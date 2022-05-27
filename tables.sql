@@ -39,7 +39,7 @@ CREATE TABLE voyage (
     port_depart INT NOT NULL,
     port_arrivee INT,
     type_voyage VARCHAR NOT NULL CHECK (type_voyage = 'Court' OR type_voyage = 'Moyen' OR type_voyage = 'Long'),
-    /* categorie VARCHAR CHECK (categorie = 'Europe' OR categorie = 'Asie' OR categorie = 'Amerique' OR categorie = 'Afrique' OR categorie = 'Oceanie'), */
+    categorie VARCHAR CHECK (categorie = 'Europe' OR categorie = 'Asie' OR categorie = 'Amérique du Nord' OR categorie = 'Amérique du Sud' OR categorie = 'Afrique' OR categorie = 'Océanie' OR categorie = 'Antarctique' OR categorie = 'Intercontinental'),
     FOREIGN KEY (id_navire) REFERENCES navire (id_navire),
     FOREIGN KEY (port_depart) REFERENCES port (id_port),
     FOREIGN KEY (port_arrivee) REFERENCES port (id_port),
@@ -84,7 +84,7 @@ CREATE TABLE diplomatie (
 \COPY port FROM './CSV/port.csv' WITH CSV;
 \COPY navire FROM './CSV/navire.csv' WITH CSV;
 \COPY voyage FROM './CSV/voyage.csv' WITH CSV;
-\COPY diplomatie FROM './CSV/relations.csv' WITH CSV;
+\COPY diplomatie FROM './CSV/diplomatie.csv' WITH CSV;
 
 /**
  1-n + 1-n table de transition
