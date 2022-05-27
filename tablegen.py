@@ -165,3 +165,16 @@ for i in range(0, TRAVELS):
         ct = 'Long'
     travels_csv_writer.writerow([str(i + 1), start_date, end_date, str(current_ship + 1), str(current_port_source + 1), str(current_port_destination + 1), ct, continentvoyage])
 travels_file.close()
+
+perishable_products_type2 = [ ('Oranges', '268'), ('Fraises', '84'), ('Ananas', '546'), ('Avocat', '321') ]
+perishable_products_type1 = [ ('Lait', '852'), ("Pommes", '242'), ('Beurre', '51') ]
+nonperishable_products = [ ('Sel', '1'), ('Poivre', '3'), ('Sucre', '2'), ('Café', '5'), ('Tabac', '10'), ('Rhum', '950'), ('Chandelles', '100'), ('Bois', '5000') ]
+products_combined = perishable_products_type2 + perishable_products_type1 + nonperishable_products
+produits_file = open('./CSV/produit.csv', 'w', newline = '')
+produit_csv_writer = csv.writer(produits_file, delimiter = ',', quoting = csv.QUOTE_MINIMAL)
+for i in range(0, len(products_combined)):
+    perish = False
+    if i < len(perishable_products_type2 + perishable_products_type1):
+        perish = True
+    produit_csv_writer.writerow([str(i + 1), products_combined[i][0], products_combined[i][1], perish])
+produits_file.close()
