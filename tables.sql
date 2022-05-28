@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS navire CASCADE;
 DROP TABLE IF EXISTS voyage CASCADE;
 DROP TABLE IF EXISTS etape CASCADE;
 DROP TABLE IF EXISTS produit CASCADE;
-DROP TABLE IF EXISTS packing CASCADE;
+DROP TABLE IF EXISTS cargaison CASCADE;
 DROP TABLE IF EXISTS diplomatie CASCADE;
 
 CREATE TABLE nation (
@@ -46,6 +46,13 @@ CREATE TABLE voyage (
     CHECK (date_depart < date_arrive)
 );
 
+CREATE TABLE produit (
+    id_produit INT PRIMARY KEY,
+    nom VARCHAR NOT NULL,
+    volume INT NOT NULL CHECK (volume >= 0),
+    perissable BOOLEAN NOT NULL
+);
+
 CREATE TABLE etape (
     id_etape SERIAL PRIMARY KEY,
     id_voyage INT NOT NULL,
@@ -56,16 +63,10 @@ CREATE TABLE etape (
     UNIQUE (numero, id_voyage)
 );
 
-CREATE TABLE produit (
-    id_produit INT PRIMARY KEY,
-    nom VARCHAR NOT NULL,
-    volume INT NOT NULL CHECK (volume >= 0),
-    perissable BOOLEAN NOT NULL
-);
-
-CREATE TABLE packing (
+CREATE TABLE cargaison (
     id_etape INT NOT NULL,
     id_produit INT NOT NULL,
+    quantite_produit INT NOT NULL,
     FOREIGN KEY (id_etape) REFERENCES etape (id_etape),
     FOREIGN KEY (id_produit) REFERENCES produit (id_produit),
     PRIMARY KEY (id_etape, id_produit)
