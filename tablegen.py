@@ -4,9 +4,9 @@ import math
 import datetime
 
 NATIONS = 20
-PORTS = 50
-SHIPS = 75
-TRAVELS = 100
+PORTS = 80
+SHIPS = 200
+TRAVELS = 500
 
 countries_and_continents = []
 diplomatic_relationships = [ 'Alliés', 'Alliés Commerciaux', 'Neutres', 'En Guerre' ]

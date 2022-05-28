@@ -9,12 +9,12 @@ DROP TABLE IF EXISTS diplomatie CASCADE;
 
 CREATE TABLE nation (
     code_nation INT PRIMARY KEY,
-    nom VARCHAR NOT NULL
+    nom_nation VARCHAR NOT NULL
 );
 
 CREATE TABLE port (
     id_port INT PRIMARY KEY,
-    nom VARCHAR NOT NULL,
+    nom_port VARCHAR NOT NULL,
     nation INT NOT NULL,
     localisation VARCHAR CHECK (localisation = 'Europe' OR localisation = 'Asie' OR localisation = 'Amérique du Nord' OR localisation = 'Amérique du Sud' OR localisation = 'Afrique' OR localisation = 'Océanie' OR localisation = 'Antarctique'),
     FOREIGN KEY (nation) REFERENCES nation (code_nation),
@@ -68,16 +68,16 @@ CREATE TABLE packing (
     id_produit INT NOT NULL,
     FOREIGN KEY (id_etape) REFERENCES etape (id_etape),
     FOREIGN KEY (id_produit) REFERENCES produit (id_produit),
-    PRIMARY KEY(id_etape, id_produit)
+    PRIMARY KEY (id_etape, id_produit)
 );
 
 CREATE TABLE diplomatie (
     nation_1 INT NOT NULL,
     nation_2 INT NOT NULL,
-    relation_diplomatique VARCHAR NOT NULL CHECK (relation_diplomatique = 'Alliés Commerciaux' OR relation_diplomatique = 'Alliés' OR relation_diplomatique = 'Neutres' OR relation_diplomatique = 'En Guerre'),
+    relation_diplomatique VARCHAR CHECK (relation_diplomatique = 'Alliés Commerciaux' OR relation_diplomatique = 'Alliés' OR relation_diplomatique = 'Neutres' OR relation_diplomatique = 'En Guerre'),
     FOREIGN KEY (nation_1) REFERENCES nation (code_nation),
     FOREIGN KEY (nation_2) REFERENCES nation (code_nation),
-    PRIMARY KEY(nation_1, nation_2)
+    PRIMARY KEY (nation_1, nation_2)
 );
 
 \COPY nation FROM './CSV/nation.csv' WITH CSV;
