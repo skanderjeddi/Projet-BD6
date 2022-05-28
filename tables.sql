@@ -86,6 +86,7 @@ CREATE TABLE diplomatie (
 \COPY navire FROM './CSV/navire.csv' WITH CSV;
 \COPY voyage FROM './CSV/voyage.csv' WITH CSV;
 \COPY diplomatie FROM './CSV/diplomatie.csv' WITH CSV;
+\COPY etape FROM './CSV/etape.csv' WITH CSV;
 
 /**
  1-n + 1-n table de transition

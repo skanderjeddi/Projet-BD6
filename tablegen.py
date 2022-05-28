@@ -6,7 +6,7 @@ import datetime
 NATIONS = 192
 PORTS = 960
 SHIPS = 2880
-TRAVELS = 14400
+TRAVELS = 8660
 
 DIPLOMATIC_RELATIONSHIPS = [ 'Alliés', 'Alliés Commerciaux', 'Neutres', 'En Guerre' ]
 SHIPS_CATEGORIES = [ 'Yacht', 'Flute', 'Galion', 'Gabare', 'Clipper' ]
@@ -122,6 +122,7 @@ def write_travels(countries_and_continents, ports_nations, relations_in_table, s
     travels_types = []
     travels_ships = []
     steps = []
+    total_steps = 0
     for i in range(0, TRAVELS):
         current_port_source = random.randint(0, PORTS - 1)
         current_port_destination = random.randint(0, PORTS - 1)
@@ -194,11 +195,11 @@ def write_travels(countries_and_continents, ports_nations, relations_in_table, s
                         keep_going = False
                         break
                 break
-            steps.append([str(i), '0', str(random_port_in_random_country)])
+            steps.append([str(i + 1), '1', str(random_port_in_random_country + 1)])
             c = 1
             keep_going = True
             while keep_going:
-                if random.random() > 0.5 and c < 2:
+                if random.random() > 0.5 and c <= 2:
                     random_choice = random.choice(countries_and_continents)
                     if c == 1:
                         while random_choice[0] != current_source_continent or random_choice[1] == current_nation_source:
@@ -206,7 +207,7 @@ def write_travels(countries_and_continents, ports_nations, relations_in_table, s
                         random_country_in_continent = random_choice[1]
                         for p in range(0, PORTS):
                             if ports_nations[p] == random_country_in_continent:
-                                steps.append([str(i), str(c), str(p)])
+                                steps.append([str(i + 1), str(c + 1), str(p + 1)])
                                 c += 1
                                 break
                     elif c == 2:
@@ -215,7 +216,7 @@ def write_travels(countries_and_continents, ports_nations, relations_in_table, s
                         random_country_in_continent = random_choice[1]
                         for p in range(0, PORTS):
                             if ports_nations[p] == random_country_in_continent:
-                                steps.append([str(i), str(c), str(p)])
+                                steps.append([str(i + 1), str(c + 1), str(p + 1)])
                                 c += 1
                                 break
                 else:
@@ -223,8 +224,9 @@ def write_travels(countries_and_continents, ports_nations, relations_in_table, s
         travels_csv_writer.writerow([str(i + 1), start_date, end_date, str(current_ship + 1), str(current_port_source + 1), str(current_port_destination + 1), ct, continentvoyage])
         i = 0
         for step in steps:
-            steps_csv_writer.writerow([str(i + 1), step[0], step[1], step[2]])
+            steps_csv_writer.writerow([str(total_steps + i + 1), step[0], step[1], step[2]])
             i += 1
+        total_steps += len(steps)
         steps.clear()
     travels_file.close()
     steps_file.close()
