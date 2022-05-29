@@ -1,5 +1,7 @@
---Avoir les produits tel que leur prix total au kilo est inferieru à la moitie de la valeur maximal du tout les produits
-SELECT nom, SUM(volume_kg)
+-- Cette requête récupère les produits qui ont un prix supérieur à la moyenne des prix de tous les produits
+SELECT produit_nom, produit_prix_kg
 FROM produit
-GROUP BY nom
-HAVING AVG(volume_kg) < 0
+WHERE produit_prix_kg > (
+    SELECT AVG(produit_prix_kg)
+    FROM produit
+)
