@@ -4,9 +4,9 @@ import math
 import datetime
 
 NATIONS = 192
-PORTS = 960
-SHIPS = 2880
-TRAVELS = 8660
+PORTS = 1022 + NATIONS
+SHIPS = 3124
+TRAVELS = 6202
 
 DIPLOMATIC_RELATIONSHIPS = [ 'Alliés', 'Alliés Commerciaux', 'Neutres', 'En Guerre' ]
 SHIPS_CATEGORIES = [ 'Yacht', 'Flute', 'Galion', 'Gabare', 'Clipper' ]
@@ -34,7 +34,7 @@ def read_countries():
     countries_and_continents = []
     for line in lines:
         line_split = line.split(',')
-        countries_and_continents.append((line_split[0].replace('Asia', 'Asie').replace('Africa', 'Afrique').replace('North America', 'Amérique du Nord').replace('South America', 'Amérique du Sud').replace('Oceania', 'Océanie'), line_split[1].strip()))
+        countries_and_continents.append((line_split[0], line_split[1].strip()))
     cac_file.close()
     return countries_and_continents
 
@@ -100,7 +100,7 @@ def write_ports(nations_in_table):
         ports_sizes.append(current_port_size)
         ports_nations.append(current_port_nation)
         ports.append([str(i + 1), "P" + str(i + 1), str(i + 1), str(current_port_continent), str(current_port_size)])
-    for i in range(0, PORTS):
+    for i in range(0, PORTS - NATIONS):
         port_longitude, port_latitude = random_position()
         while((port_longitude, port_latitude) in ports_positions):
             port_longitude, port_latitude = random_position()
@@ -236,7 +236,7 @@ def write_travels(countries_and_continents, ports, relations_in_table, ships, pr
             used_products = []
             for product in products:
                 random_amount = random.randint(1, math.ceil(merch / product[1]))
-                print("F", steps_counter + 1, "merch", merch, "product volume", product[1], "product amount", random_amount)
+                # print("F", steps_counter + 1, "merch", merch, "product volume", product[1], "product amount", random_amount)
                 if merch - product[1] * random_amount <= 0:
                     continue
                 merch -= product[1] * random_amount
@@ -263,7 +263,7 @@ def write_travels(countries_and_continents, ports, relations_in_table, ships, pr
                                 for product in used_products:
                                     # print(steps_counter, product)
                                     random_amount = random.randint(1, max(2, math.ceil(merch / product[1]))) * (-1 if random.random() > 0.5 else 1)
-                                    print("S", steps_counter + 1, "merch", merch, "product volume", product[1], "product amount", random_amount)
+                                    # print("S", steps_counter + 1, "merch", merch, "product volume", product[1], "product amount", random_amount)
                                     if abs(merch - product[1] * random_amount) > int(ships[current_ship][3]):
                                         continue
                                     merch -= product[1] * random_amount
@@ -284,7 +284,7 @@ def write_travels(countries_and_continents, ports, relations_in_table, ships, pr
                                 for product in used_products:
                                     # print(steps_counter, product)
                                     random_amount = random.randint(1, max(2, math.ceil(merch / product[1]))) * (-1 if random.random() > 0.5 else 1)
-                                    print("T", steps_counter + 1, "merch", merch, "product volume", product[1], "product amount", random_amount)
+                                    # print("T", steps_counter + 1, "merch", merch, "product volume", product[1], "product amount", random_amount)
                                     if abs(merch - product[1] * random_amount) > int(ships[current_ship][3]):
                                         continue
                                     merch -= product[1] * random_amount

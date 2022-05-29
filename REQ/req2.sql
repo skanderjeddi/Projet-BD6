@@ -1,6 +1,5 @@
--- Quelles sont les nations des navires qui ont déjà transporté la marchandise x
-
-SELECT Nation.nom FROM Nation N1
+-- Quelles sont les nations des navires qui ont déjà transporté du rhum?
+SELECT N1.nation_nom FROM nation N1
 WHERE EXISTS (
     SELECT * FROM 
     JOIN Navire N2 ON Nation.id_nation = Navire.id_nation 

@@ -1,192 +1,192 @@
-Africa,Algeria
-Africa,Angola
-Africa,Benin
-Africa,Botswana
-Africa,Burkina
-Africa,Burundi
-Africa,Cameroon
-Africa,Cape Verde
-Africa,Central African Republic
-Africa,Chad
-Africa,Comoros
-Africa,Democratic Republic of Congo
-Africa,Djibouti
-Africa,Egypt
-Africa,Equatorial Guinea
-Africa,Eritrea
-Africa,Ethiopia
-Africa,Gabon
-Africa,Gambia
-Africa,Ghana
-Africa,Guinea
-Africa,Guinea-Bissau
-Africa,Ivory Coast
-Africa,Kenya
-Africa,Lesotho
-Africa,Liberia
-Africa,Libya
-Africa,Madagascar
-Africa,Malawi
-Africa,Mali
-Africa,Mauritania
-Africa,Mauritius
-Africa,Morocco
-Africa,Mozambique
-Africa,Namibia
-Africa,Niger
-Africa,Nigeria
-Africa,Rwanda
-Africa,Sao Tome and Principe
-Africa,Senegal
-Africa,Seychelles
-Africa,Sierra Leone
-Africa,Somalia
-Africa,South Africa
-Africa,South Sudan
-Africa,Sudan
-Africa,Swaziland
-Africa,Tanzania
-Africa,Togo
-Africa,Tunisia
-Africa,Uganda
-Africa,Zambia
-Africa,Zimbabwe
-Asia,Afghanistan
-Asia,Bahrain
-Asia,Bangladesh
-Asia,Bhutan
-Asia,Brunei
-Asia,Myanmar
-Asia,Cambodia
-Asia,China
-Asia,East Timor
-Asia,India
-Asia,Indonesia
-Asia,Iran
-Asia,Iraq
-Asia,Israel
-Asia,Japan
-Asia,Jordan
-Asia,Kazakhstan
-Asia,South Korea
-Asia,Kuwait
-Asia,Kyrgyzstan
-Asia,Laos
-Asia,Lebanon
-Asia,Malaysia
-Asia,Maldives
-Asia,Mongolia
-Asia,Nepal
-Asia,Oman
-Asia,Pakistan
-Asia,Philippines
-Asia,Qatar
-Asia,Russian Federation
-Asia,Saudi Arabia
-Asia,Singapore
-Asia,Sri Lanka
-Asia,Syria
-Asia,Tajikistan
-Asia,Thailand
-Asia,Turkey
-Asia,Turkmenistan
-Asia,United Arab Emirates
-Asia,Uzbekistan
-Asia,Vietnam
-Asia,Yemen
-Europe,Albania
-Europe,Andorra
-Europe,Armenia
-Europe,Austria
+Afrique,Algérie
+Afrique,Angola
+Afrique,Benin
+Afrique,Botswana
+Afrique,Burkina Faso
+Afrique,Burundi
+Afrique,Cameroon
+Afrique,Cap Vert
+Afrique,République Centrale Afriqueine
+Afrique,Chad
+Afrique,Comoros
+Afrique,République Démocratique du Congo
+Afrique,Djibouti
+Afrique,Égypte
+Afrique,Guinée Équatoriale
+Afrique,Érythrée
+Afrique,Éthiopie
+Afrique,Gabon
+Afrique,Gambie
+Afrique,Ghana
+Afrique,Guinée
+Afrique,Guinée-Bissau
+Afrique,Côte d'Ivoire
+Afrique,Kenya
+Afrique,Lesotho
+Afrique,Liberia
+Afrique,Libie
+Afrique,Madagascar
+Afrique,Malawi
+Afrique,Mali
+Afrique,Mauritanie
+Afrique,Île Maurice
+Afrique,Maroc
+Afrique,Mozambique
+Afrique,Namibie
+Afrique,Niger
+Afrique,Nigéria
+Afrique,Rwanda
+Afrique,Sao Tomé-et-Principe
+Afrique,Sénégal
+Afrique,Seychelles
+Afrique,Sierra Leone
+Afrique,Somalie
+Afrique,Afrique du Sud
+Afrique,Soudan du Sud
+Afrique,Soudan
+Afrique,Eswatini
+Afrique,Tanzanie
+Afrique,Togo
+Afrique,Tunisie
+Afrique,Ouganda
+Afrique,Zambie
+Afrique,Zimbabwe
+Asie,Afghanistan
+Asie,Bahrain
+Asie,Bangladesh
+Asie,Bhutan
+Asie,Brunei
+Asie,Myanmar
+Asie,Cambodge
+Asie,Chine
+Asie,Timor Oriental
+Asie,Inde
+Asie,Indonésie
+Asie,Iran
+Asie,Iraq
+Asie,Israel
+Asie,Japon
+Asie,Jordanie
+Asie,Kazakhstan
+Asie,Corée du Sud
+Asie,Kuwait
+Asie,Kyrgyzstan
+Asie,Laos
+Asie,Liban
+Asie,Malaisie
+Asie,Maldives
+Asie,Mongolie
+Asie,Népal
+Asie,Oman
+Asie,Pakistan
+Asie,Philippines
+Asie,Qatar
+Asie,Russie
+Asie,Arabie Saoudite
+Asie,Singapour
+Asie,Sri Lanka
+Asie,Syrie
+Asie,Tajikistan
+Asie,Thailande
+Asie,Turquie
+Asie,Turkménistan
+Asie,UAE
+Asie,Ouzbékistan
+Asie,Vietnam
+Asie,Yémen
+Europe,Albanie
+Europe,Andorre
+Europe,Armenie
+Europe,Autriche
 Europe,Azerbaijan
-Europe,Belarus
-Europe,Belgium
-Europe,Bosnia and Herzegovina
-Europe,Bulgaria
-Europe,Croatia
-Europe,Cyprus
-Europe,Czech Republic
-Europe,Denmark
-Europe,Estonia
-Europe,Finland
+Europe,Biélorussie
+Europe,Belgique
+Europe,Bosnie-Herzégovine
+Europe,Bulgarie
+Europe,Croatie
+Europe,Chypre
+Europe,République Tchèque
+Europe,Danemark
+Europe,Estonie
+Europe,Finlande
 Europe,France
-Europe,Georgia
-Europe,Germany
-Europe,Greece
-Europe,Hungary
-Europe,Iceland
-Europe,Ireland
-Europe,Italy
-Europe,Latvia
+Europe,Géorgie
+Europe,Allemagne
+Europe,Grèce
+Europe,Hongrie
+Europe,Islande
+Europe,Irlande
+Europe,Italie
+Europe,Lettonie
 Europe,Liechtenstein
-Europe,Lithuania
+Europe,Lithuanie
 Europe,Luxembourg
-Europe,Macedonia
-Europe,Malta
-Europe,Moldova
+Europe,Macédoine
+Europe,Malte
+Europe,Moldovie
 Europe,Monaco
-Europe,Montenegro
-Europe,Netherlands
-Europe,Norway
-Europe,Poland
+Europe,Monténégro
+Europe,Pays-Bad
+Europe,Norvège
+Europe,Pologne
 Europe,Portugal
-Europe,Romania
+Europe,Roumanie
 Europe,San Marino
-Europe,Serbia
-Europe,Slovakia
-Europe,Slovenia
-Europe,Spain
-Europe,Sweden
-Europe,Switzerland
+Europe,Serbie
+Europe,Slovakie
+Europe,Slovénie
+Europe,Espagne
+Europe,Suède
+Europe,Suisse
 Europe,Ukraine
-Europe,United Kingdom
-Europe,Vatican City
-North America,Antigua and Barbuda
-North America,Bahamas
-North America,Barbados
-North America,Belize
-North America,Canada
-North America,Costa Rica
-North America,Cuba
-North America,Dominica
-North America,Dominican Republic
-North America,El Salvador
-North America,Grenada
-North America,Guatemala
-North America,Haiti
-North America,Honduras
-North America,Jamaica
-North America,Mexico
-North America,Nicaragua
-North America,Panama
-North America,Saint Kitts and Nevis
-North America,Saint Lucia
-North America,Saint Vincent and the Grenadines
-North America,Trinidad and Tobago
-North America,US
-Oceania,Australia
-Oceania,Fiji
-Oceania,Kiribati
-Oceania,Marshall Islands
-Oceania,Micronesia
-Oceania,Nauru
-Oceania,New Zealand
-Oceania,Palau
-Oceania,Papua New Guinea
-Oceania,Samoa
-Oceania,Solomon Islands
-Oceania,Tonga
-Oceania,Tuvalu
-Oceania,Vanuatu
-South America,Argentina
-South America,Bolivia
-South America,Brazil
-South America,Chile
-South America,Colombia
-South America,Ecuador
-South America,Guyana
-South America,Paraguay
-South America,Peru
-South America,Suriname
-South America,Uruguay
-South America,Venezuela
+Europe,Angleterre
+Europe,Vatican
+Amérique du Nord,Antigue-et-Barbude
+Amérique du Nord,Bahamas
+Amérique du Nord,Barbade
+Amérique du Nord,Belize
+Amérique du Nord,Canada
+Amérique du Nord,Costa Rica
+Amérique du Nord,Cuba
+Amérique du Nord,Dominique
+Amérique du Nord,République Dominicaine
+Amérique du Nord,El Salvador
+Amérique du Nord,Grenade
+Amérique du Nord,Guatemala
+Amérique du Nord,Haiti
+Amérique du Nord,Honduras
+Amérique du Nord,Jamaïque
+Amérique du Nord,Mexique
+Amérique du Nord,Nicaragua
+Amérique du Nord,Panama
+Amérique du Nord,Saint-Christophe-et-Niévès
+Amérique du Nord,Sainte-Lucie
+Amérique du Nord,Saint-Vincent-et-les-Grenadines
+Amérique du Nord,Trinité-et-Tobago
+Amérique du Nord,États-Unis
+Océanie,Australie
+Océanie,Fiji
+Océanie,Kiribati
+Océanie,Îles Marshall
+Océanie,Micronésie
+Océanie,Nauru
+Océanie,Nouvelle Zélande
+Océanie,Palau
+Océanie,Papouasie Nouvelle Guinée
+Océanie,Samoa
+Océanie,Îles Solomon
+Océanie,Tonga
+Océanie,Tuvalu
+Océanie,Vanuatu
+Amérique du Sud,Argentine
+Amérique du Sud,Bolivie
+Amérique du Sud,Brésil
+Amérique du Sud,Chili
+Amérique du Sud,Colombie
+Amérique du Sud,Équateur
+Amérique du Sud,Guyane
+Amérique du Sud,Paraguay
+Amérique du Sud,Pérou
+Amérique du Sud,Suriname
+Amérique du Sud,Uruguay
+Amérique du Sud,Vénézuela
