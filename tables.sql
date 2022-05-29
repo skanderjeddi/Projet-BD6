@@ -8,79 +8,79 @@ DROP TABLE IF EXISTS cargaison CASCADE;
 DROP TABLE IF EXISTS diplomatie CASCADE;
 
 CREATE TABLE nation (
-    code_nation INT PRIMARY KEY,
-    nom_nation VARCHAR NOT NULL
+    nation_code INT PRIMARY KEY,
+    nation_nom VARCHAR NOT NULL
 );
 
 CREATE TABLE port (
-    id_port INT PRIMARY KEY,
-    nom_port VARCHAR NOT NULL,
-    nation INT NOT NULL,
-    localisation VARCHAR CHECK (localisation = 'Europe' OR localisation = 'Asie' OR localisation = 'Amérique du Nord' OR localisation = 'Amérique du Sud' OR localisation = 'Afrique' OR localisation = 'Océanie' OR localisation = 'Antarctique'),
-    FOREIGN KEY (nation) REFERENCES nation (code_nation),
-    taille INT NOT NULL CHECK (taille >= 1 AND taille <= 5)
+    port_id INT PRIMARY KEY,
+    port_nom VARCHAR NOT NULL,
+    port_nation INT NOT NULL,
+    port_continent VARCHAR CHECK (port_continent = 'Europe' OR port_continent = 'Asie' OR port_continent = 'Amérique du Nord' OR port_continent = 'Amérique du Sud' OR port_continent = 'Afrique' OR port_continent = 'Océanie' OR port_continent = 'Antarctique'),
+    FOREIGN KEY (port_nation) REFERENCES nation (nation_code),
+    port_taille INT NOT NULL CHECK (port_taille >= 1 AND port_taille <= 5)
 );
 
 CREATE TABLE navire (
-    id_navire INT PRIMARY KEY,
-    categorie VARCHAR CHECK (categorie = 'Flute' OR categorie = 'Yacht' OR categorie = 'Galion' OR categorie = 'Gabare' OR categorie = 'Clipper'),
-    nation INT NOT NULL,
-    capacite_marchandise INT NOT NULL CHECK (capacite_marchandise >= 0),
-    capacite_passagers INT NOT NULL CHECK (capacite_passagers >= 0),
-    FOREIGN KEY (nation) REFERENCES nation (code_nation),
-    CHECK ((capacite_marchandise = 0 AND capacite_passagers > 0) OR (capacite_marchandise > 0 AND capacite_passagers = 0) OR (capacite_marchandise > 0 AND capacite_passagers > 0))
+    navire_id INT PRIMARY KEY,
+    navire_type VARCHAR CHECK (navire_type = 'Flute' OR navire_type = 'Yacht' OR navire_type = 'Galion' OR navire_type = 'Gabare' OR navire_type = 'Clipper'),
+    navire_nation INT NOT NULL,
+    navire_capacite_marchandise INT NOT NULL CHECK (navire_capacite_marchandise >= 0),
+    navire_capacite_passagers INT NOT NULL CHECK (navire_capacite_passagers >= 0),
+    FOREIGN KEY (navire_nation) REFERENCES nation (nation_code),
+    CHECK ((navire_capacite_marchandise = 0 AND navire_capacite_passagers > 0) OR (navire_capacite_marchandise > 0 AND navire_capacite_passagers = 0) OR (navire_capacite_marchandise > 0 AND navire_capacite_passagers > 0))
 );
 
 CREATE TABLE voyage (
-    id_voyage INT PRIMARY KEY,
-    date_depart DATE NOT NULL,
-    date_arrive DATE NOT NULL,
-    id_navire INT NOT NULL,
-    port_depart INT NOT NULL,
-    port_arrivee INT,
-    type_voyage VARCHAR NOT NULL CHECK (type_voyage = 'Court' OR type_voyage = 'Moyen' OR type_voyage = 'Long'),
-    categorie VARCHAR CHECK (categorie = 'Europe' OR categorie = 'Asie' OR categorie = 'Amérique du Nord' OR categorie = 'Amérique du Sud' OR categorie = 'Afrique' OR categorie = 'Océanie' OR categorie = 'Antarctique' OR categorie = 'Intercontinental'),
-    FOREIGN KEY (id_navire) REFERENCES navire (id_navire),
-    FOREIGN KEY (port_depart) REFERENCES port (id_port),
-    FOREIGN KEY (port_arrivee) REFERENCES port (id_port),
-    CHECK (date_depart < date_arrive)
+    voyage_id INT PRIMARY KEY,
+    voyage_date_depart DATE NOT NULL,
+    voyage_date_arrive DATE NOT NULL,
+    voyage_navire_id INT NOT NULL,
+    voyage_port_depart INT NOT NULL,
+    voyage_port_arrivee INT,
+    voyage_type VARCHAR NOT NULL CHECK (voyage_type = 'Court' OR voyage_type = 'Moyen' OR voyage_type = 'Long'),
+    voyage_continent VARCHAR CHECK (voyage_continent = 'Europe' OR voyage_continent = 'Asie' OR voyage_continent = 'Amérique du Nord' OR voyage_continent = 'Amérique du Sud' OR voyage_continent = 'Afrique' OR voyage_continent = 'Océanie' OR voyage_continent = 'Antarctique' OR voyage_continent = 'Intercontinental'),
+    FOREIGN KEY (voyage_navire_id) REFERENCES navire (navire_id),
+    FOREIGN KEY (voyage_port_depart) REFERENCES port (port_id),
+    FOREIGN KEY (voyage_port_arrivee) REFERENCES port (port_id),
+    CHECK (voyage_date_depart < voyage_date_arrive)
 );
 
 CREATE TABLE produit (
-    id_produit INT PRIMARY KEY,
-    nom VARCHAR NOT NULL,
-    volume_kg INT NOT NULL CHECK (volume_kg >= 0),
-    prix_kg INT,
-    perissable BOOLEAN NOT NULL
+    produit_id INT PRIMARY KEY,
+    produit_nom VARCHAR NOT NULL,
+    produit_volume_kg INT NOT NULL CHECK (produit_volume_kg >= 0),
+    produit_prix_kg INT,
+    produit_perissable BOOLEAN NOT NULL
 );
 
 CREATE TABLE etape (
-    id_etape SERIAL PRIMARY KEY,
-    id_voyage INT NOT NULL,
-    numero INT NOT NULL CHECK (numero >= 0),
-    id_port INT NOT NULL,
-    passagers INT,
-    FOREIGN KEY (id_voyage) REFERENCES voyage (id_voyage),
-    FOREIGN KEY (id_port) REFERENCES port (id_port),
-    UNIQUE (numero, id_voyage)
+    etape_id SERIAL PRIMARY KEY,
+    etape_voyage_id INT NOT NULL,
+    etape_numero INT NOT NULL CHECK (etape_numero >= 1),
+    etape_port_id INT NOT NULL,
+    etape_passagers_delta INT,
+    FOREIGN KEY (etape_voyage_id) REFERENCES voyage (voyage_id),
+    FOREIGN KEY (etape_port_id) REFERENCES port (port_id),
+    UNIQUE (etape_numero, etape_voyage_id)
 );
 
 CREATE TABLE cargaison (
-    id_etape INT NOT NULL,
-    id_produit INT NOT NULL,
-    quantite_produit INT NOT NULL,
-    FOREIGN KEY (id_etape) REFERENCES etape (id_etape),
-    FOREIGN KEY (id_produit) REFERENCES produit (id_produit),
-    PRIMARY KEY (id_etape, id_produit)
+    cargaison_etape_id INT NOT NULL,
+    cargaison_produit_id INT NOT NULL,
+    cargaison_quantite_produit INT NOT NULL,
+    FOREIGN KEY (cargaison_etape_id) REFERENCES etape (etape_id),
+    FOREIGN KEY (cargaison_produit_id) REFERENCES produit (produit_id),
+    PRIMARY KEY (cargaison_etape_id, cargaison_produit_id)
 );
 
 CREATE TABLE diplomatie (
-    nation_1 INT NOT NULL,
-    nation_2 INT NOT NULL,
-    relation_diplomatique VARCHAR CHECK (relation_diplomatique = 'Alliés Commerciaux' OR relation_diplomatique = 'Alliés' OR relation_diplomatique = 'Neutres' OR relation_diplomatique = 'En Guerre'),
-    FOREIGN KEY (nation_1) REFERENCES nation (code_nation),
-    FOREIGN KEY (nation_2) REFERENCES nation (code_nation),
-    PRIMARY KEY (nation_1, nation_2)
+    diplomatie_nation_1 INT NOT NULL,
+    diplomatie_nation_2 INT NOT NULL,
+    diplomatie_relation VARCHAR CHECK (diplomatie_relation = 'Alliés Commerciaux' OR diplomatie_relation = 'Alliés' OR diplomatie_relation = 'Neutres' OR diplomatie_relation = 'En Guerre'),
+    FOREIGN KEY (diplomatie_nation_1) REFERENCES nation (nation_code),
+    FOREIGN KEY (diplomatie_nation_2) REFERENCES nation (nation_code),
+    PRIMARY KEY (diplomatie_nation_1, diplomatie_nation_2)
 );
 
 \COPY nation FROM './CSV/nation.csv' CSV;

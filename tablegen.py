@@ -232,15 +232,17 @@ def write_travels(countries_and_continents, ports, relations_in_table, ships, pr
             # print(random_port_in_random_country)
             steps.append([str(i + 1), '1', str(random_port_in_random_country + 1), ships[current_ship][4]])
             merch = int(ships[current_ship][3])
+            # print(merch)
             used_products = []
-            products.reverse()
             for product in products:
-                random_amount = random.randint(0, math.ceil(merch / product[1]))
+                random_amount = random.randint(1, math.ceil(merch / product[1]))
+                print("F", steps_counter + 1, "merch", merch, "product volume", product[1], "product amount", random_amount)
+                if merch - product[1] * random_amount <= 0:
+                    continue
                 merch -= product[1] * random_amount
                 packings.append([str(steps_counter + 1), str(products.index(product) + 1), random_amount])
                 used_products.append(product)
-                if merch <= 0:
-                    break
+            # print(to)
             steps_counter += 1
             # print(used_products)
             c = 1
@@ -258,14 +260,13 @@ def write_travels(countries_and_continents, ports, relations_in_table, ships, pr
                                 if pr > 0.5: 
                                     pdelta = random.randrange(-int(ships[current_ship][4]), SHIPS_CAPACITIES_PEOPLE[SHIPS_CATEGORIES.index(ships[current_ship][1])] - int(ships[current_ship][4]))
                                 steps.append([str(i + 1), str(c + 1), str(p + 1), pdelta])
-                                merch = int(ships[current_ship][3])
-                                used_products.reverse()
                                 for product in used_products:
                                     # print(steps_counter, product)
-                                    random_amount = random.randint(0, abs(math.ceil(merch / product[1]))) * (-1 if random.random() > 0.5 else 1)
-                                    merch -= product[1] * random_amount
-                                    if abs(merch + product[1] * random_amount) > merch:
+                                    random_amount = random.randint(1, max(2, math.ceil(merch / product[1]))) * (-1 if random.random() > 0.5 else 1)
+                                    print("S", steps_counter + 1, "merch", merch, "product volume", product[1], "product amount", random_amount)
+                                    if abs(merch - product[1] * random_amount) > int(ships[current_ship][3]):
                                         continue
+                                    merch -= product[1] * random_amount
                                     packings.append([str(steps_counter + 1), str(products.index(product) + 1), random_amount])
                                 steps_counter += 1
                                 c += 1
@@ -280,14 +281,13 @@ def write_travels(countries_and_continents, ports, relations_in_table, ships, pr
                                 if pr > 0.5: 
                                     pdelta = random.randrange(-int(ships[current_ship][4]), SHIPS_CAPACITIES_PEOPLE[SHIPS_CATEGORIES.index(ships[current_ship][1])] - int(ships[current_ship][4]))
                                 steps.append([str(i + 1), str(c + 1), str(p + 1), pdelta])
-                                merch = int(ships[current_ship][3])
-                                used_products.reverse()
                                 for product in used_products:
                                     # print(steps_counter, product)
-                                    random_amount = random.randint(0, abs(math.ceil(merch / product[1]))) * (-1 if random.random() > 0.5 else 1)
-                                    merch -= product[1] * random_amount
-                                    if abs(merch + product[1] * random_amount) > merch:
+                                    random_amount = random.randint(1, max(2, math.ceil(merch / product[1]))) * (-1 if random.random() > 0.5 else 1)
+                                    print("T", steps_counter + 1, "merch", merch, "product volume", product[1], "product amount", random_amount)
+                                    if abs(merch - product[1] * random_amount) > int(ships[current_ship][3]):
                                         continue
+                                    merch -= product[1] * random_amount
                                     packings.append([str(steps_counter + 1), str(products.index(product) + 1), random_amount])
                                 steps_counter += 1
                                 c += 1
