@@ -294,13 +294,16 @@ def write_travels(countries_and_continents, ports, relations_in_table, ships, pr
                                 break
                 else:
                     keep_going = False
-        travels_csv_writer.writerow([str(i + 1), start_date, end_date, str(current_ship + 1), str(current_port_source + 1), str(current_port_destination + 1), ct, continentvoyage])
+        if random.random() > 0.75:
+            travels_csv_writer.writerow([str(i + 1), start_date, end_date, str(current_ship + 1), str(current_port_source + 1), 'NULL', ct, continentvoyage])
+        else:
+            travels_csv_writer.writerow([str(i + 1), start_date, end_date, str(current_ship + 1), str(current_port_source + 1), str(current_port_destination + 1), ct, continentvoyage])
         i = 0
         for step in steps:
             if step[3] != None:
                 steps_csv_writer.writerow([str(total_steps + i + 1), step[0], step[1], step[2], step[3]])
             else:
-                steps_csv_writer.writerow([str(total_steps + i + 1), step[0], step[1], step[2], 'null'])
+                steps_csv_writer.writerow([str(total_steps + i + 1), step[0], step[1], step[2], 'NULL'])
             i += 1
         total_steps += len(steps)
         steps.clear()

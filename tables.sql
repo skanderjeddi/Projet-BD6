@@ -87,9 +87,9 @@ CREATE TABLE diplomatie (
 \COPY produit FROM './CSV/produit.csv' CSV;
 \COPY port FROM './CSV/port.csv' CSV;
 \COPY navire FROM './CSV/navire.csv' CSV;
-\COPY voyage FROM './CSV/voyage.csv' CSV;
+\COPY voyage FROM './CSV/voyage.csv' WITH NULL AS 'NULL' CSV;
 \COPY diplomatie FROM './CSV/diplomatie.csv' CSV;
-\COPY etape FROM './CSV/etape.csv' WITH NULL AS 'null' CSV;
+\COPY etape FROM './CSV/etape.csv' WITH NULL AS 'NULL' CSV;
 \COPY cargaison FROM './CSV/cargaison.csv' CSV;
 
 /**
