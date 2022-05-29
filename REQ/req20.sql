@@ -8,4 +8,4 @@ FROM voyage V, Access A
 WHERE V.port_arrivee = A.depart
 )
 SELECT * FROM Access
-LIMIT 20;
+LIMIT 35;

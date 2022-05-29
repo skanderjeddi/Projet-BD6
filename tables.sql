@@ -49,7 +49,8 @@ CREATE TABLE voyage (
 CREATE TABLE produit (
     id_produit INT PRIMARY KEY,
     nom VARCHAR NOT NULL,
-    volume INT NOT NULL CHECK (volume >= 0),
+    volume_kg INT NOT NULL CHECK (volume_kg >= 0),
+    prix_kg INT,
     perissable BOOLEAN NOT NULL
 );
 
@@ -58,6 +59,7 @@ CREATE TABLE etape (
     id_voyage INT NOT NULL,
     numero INT NOT NULL CHECK (numero >= 0),
     id_port INT NOT NULL,
+    passagers INT,
     FOREIGN KEY (id_voyage) REFERENCES voyage (id_voyage),
     FOREIGN KEY (id_port) REFERENCES port (id_port),
     UNIQUE (numero, id_voyage)
@@ -81,12 +83,14 @@ CREATE TABLE diplomatie (
     PRIMARY KEY (nation_1, nation_2)
 );
 
-\COPY nation FROM './CSV/nation.csv' WITH CSV;
-\COPY port FROM './CSV/port.csv' WITH CSV;
-\COPY navire FROM './CSV/navire.csv' WITH CSV;
-\COPY voyage FROM './CSV/voyage.csv' WITH CSV;
-\COPY diplomatie FROM './CSV/diplomatie.csv' WITH CSV;
-\COPY etape FROM './CSV/etape.csv' WITH CSV;
+\COPY nation FROM './CSV/nation.csv' CSV;
+\COPY produit FROM './CSV/produit.csv' CSV;
+\COPY port FROM './CSV/port.csv' CSV;
+\COPY navire FROM './CSV/navire.csv' CSV;
+\COPY voyage FROM './CSV/voyage.csv' CSV;
+\COPY diplomatie FROM './CSV/diplomatie.csv' CSV;
+\COPY etape FROM './CSV/etape.csv' WITH NULL AS 'null' CSV;
+\COPY cargaison FROM './CSV/cargaison.csv' CSV;
 
 /**
  1-n + 1-n table de transition
