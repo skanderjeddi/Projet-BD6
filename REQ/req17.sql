@@ -4,4 +4,4 @@ FROM produit
 WHERE produit_prix_kg > (
     SELECT AVG(produit_prix_kg)
     FROM produit
-)
+);

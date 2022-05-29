@@ -9,4 +9,4 @@ WHERE EXISTS (
     JOIN cargaison ON etape.etape_id = cargaison.cargaison_etape_id
     JOIN produit ON cargaison.cargaison_produit_id = produit.produit_id
     WHERE N2.nation_code = N1.nation_code AND produit.produit_nom = 'Rhum'
-)
+);

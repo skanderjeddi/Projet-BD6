@@ -1,11 +1,11 @@
 -- Sous-requête dans le WHERE: Cette requête récupère tous les ports qui ont été départ ou destination d'un voyage intercontinental court
-SELECT id_port, nation
+SELECT port_id, port_nation
 FROM port
-WHERE id_port IN
-                (SELECT port_depart
+WHERE port_id IN
+                (SELECT voyage_port_depart
                 FROM voyage
-                WHERE categorie = 'Europe' AND type_voyage = 'Court'
+                WHERE voyage_continent = 'Europe' AND voyage_type = 'Court'
                 UNION
-                SELECT port_arrivee
+                SELECT voyage_port_depart
                 FROM voyage
-                WHERE categorie = 'Europe' AND type_voyage = 'Court')
+                WHERE voyage_continent = 'Europe' AND voyage_type = 'Court');

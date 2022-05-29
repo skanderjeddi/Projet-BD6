@@ -5,4 +5,4 @@ WHERE NOT EXISTS (
     SELECT *
     FROM voyage V
     WHERE P1.port_id = V.voyage_port_arrivee
-)
+);
